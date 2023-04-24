@@ -331,7 +331,7 @@ i {
 /* HEADER */
 header {
     /* background-color: yellow; */
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 90vw;
     background-image: url('/images/bg-image.png');
