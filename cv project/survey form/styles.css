@@ -1,0 +1,183 @@
+/* RESET */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* BACKGROUND */
+html, body {
+    overscroll-behavior: none;
+}
+
+body {
+    background: linear-gradient(90deg, hsla(240, 53%, 55%, 0.78), hsla(240, 50%, 60%, 0.7), hsla(240, 48%, 65%, 0.7)),
+        url('survey-form-background.jpeg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* TYPOGRAPHY */
+html {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: white;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+p {
+    font-weight: 200;
+    font-style: italic;
+}
+
+textarea,
+input[type="submit"] {
+    font-family: 'Poppins', sans-serif;
+}
+
+small {
+    font-size: 14px;
+}
+
+/* BASIC LAYOUT */
+/* Header */
+header {
+    text-align: center;
+}
+
+h1 {
+    margin: 44px auto 3px;
+    /* margin-top: 55px; */
+    /* margin-bottom: 3px; */
+    font-size: 33px;
+}
+
+p {
+    margin-bottom: 30px;
+}
+
+/* Form */
+main {
+    /* width: 80vw; */
+    width: 720px;
+    margin: 0 auto;
+    background-color: rgba(38, 36, 61, 0.8);
+    padding-top: 43px;
+    padding-bottom: 37px;
+    border-radius: 5px;
+}
+
+fieldset {
+    margin: 0 44px;
+    border: none;
+}
+
+input, select {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    margin-top: 0.4rem;
+}
+
+.options input {
+    margin-left: -44px;
+    width: auto;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.options {
+    margin-top: 10px;
+}
+
+.section-one, 
+.section-two {
+    margin-bottom: 25px;
+}
+
+textarea {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* STYLING */
+/* input height */
+input, select {
+    height: 2rem;
+    border-radius: 3px;
+    border: none;
+}
+
+/* input padding, font */
+input {
+    padding: .8rem;
+    font-size: 16px;
+}
+
+textarea {
+    padding: 8px 10px;
+    font-size: 16px;
+}
+
+select {
+    padding: 0.5rem;
+    font-size: 16px;
+    color: gray;
+}
+
+/* change color of inputted text */
+input, textarea, select:valid {
+    color: rgb(20, 20, 20);
+}
+
+/* button */
+input[type="submit"] {
+    padding: .3rem;
+    background-color: rgb(88,176,102);
+    color: white;
+    height: 2.5rem;
+}
+
+/* options */
+input[type="radio"],
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-bottom: 13px;
+}
+
+.options div {
+    display: flex;
+}
+
+.options label {
+    line-height: 20px;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 769px) {
+    main {
+        width: 540px;
+    }
+    p {
+        width: 500px;
+        margin: 0 auto 30px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    main {
+        width: 100%;
+    }
+}
+
+
+
+
+

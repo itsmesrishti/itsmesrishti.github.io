@@ -1,0 +1,125 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* OUTER BODY */
+main {
+    background-color: rgb(238, 238, 238);
+    margin: 30px 8px;
+    border-radius: 5px;
+    padding: 0px 15px;
+}
+
+/* TYPOGRAPHY */
+html {
+    font-size: 16px;
+    font-family: sans-serif;
+    color: rgb(51,51,51);
+}
+
+h1 {
+    font-size: 38px;
+}
+
+h2 {
+    font-size: 18.5px;
+}
+
+ul p {
+    font-size: 1.02em;
+}
+
+b {
+    font-size: 1.03em;
+}
+
+/* HEADING */
+.heading {
+    text-align: center;
+}
+
+h1 {
+    padding: 3.2rem 0 1.6rem;
+}
+
+/* IMAGE */
+.img-section {
+    background-color: white;
+    padding: 10px;
+    margin: 18px 0 54px;
+}
+
+#image {
+    margin: 0px auto 15px;
+    max-width: 100%;
+    display: block;
+}
+
+figcaption {
+    text-align: center;
+    padding: 1px 0 4px;
+    letter-spacing: .2px;
+    line-height: 1.5;
+}
+
+/* TIMELINE */
+h2 {
+    text-align: center;
+}
+
+.timeline {
+    padding-left: 38px;
+}
+
+ul {
+    max-width: 550px;
+    margin: 60px auto;
+}
+
+p {
+    display: inline;
+}
+
+li {
+    margin-bottom: 13px;
+    letter-spacing: .1px;
+    line-height: 1.7;
+}
+
+
+/* QUOTE */
+.quote {
+    max-width: 550px;
+    letter-spacing: .2px;
+    line-height: 1.7;
+    margin: -25px auto 28px;
+}
+
+.famous-person {
+    display: block;
+    margin-top: .8rem;
+}
+
+
+/* FOOTER */
+.footer {
+    font-size: 19px;
+    font-weight: 800;
+    text-align: center;
+    padding: 20px 0px 38px;
+    line-height: 1.4em;
+}
+
+a:link, a:hover, a:visited, a:active {
+    color: rgb(116,99,143);
+}
+
+
+
+
+
+
+
