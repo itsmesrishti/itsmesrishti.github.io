@@ -117,7 +117,7 @@ code {
 }
 
 /* MEDIA QUERY */
-@media screen and (max-width: 815px) {
+@media screen and (max-width: 820px), only screen and (max-height: 500px) and (orientation: landscape) {
     #navbar {
         position: absolute;
         top: 0px;
@@ -125,6 +125,7 @@ code {
         height: 278px;
         border-bottom: #4d4e53 solid 3px;
         border-right: none;
+        overflow: hidden;
     }
 
     #main-doc {
@@ -156,7 +157,7 @@ code {
     code {
         max-width: 520px;
         font-size: .8em;
-        margin: -5px 5px 10px 25px;
+        margin: -5px 5px 10px 15px;
     }
 
     #Reference li {
