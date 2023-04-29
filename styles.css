@@ -1720,20 +1720,20 @@ footer i {
         width: 100vw;
     }
     .individual-page-heading {
-        margin: 4em auto 3em;
+        margin: 5em auto 2em;
     }
     .individual-page main img, .about-project {
         width: 88vw;
     }
     .about-project {
-        margin: 6em auto;
+        margin: 5em auto;
     }
     .individual-page-h2 {
         margin-bottom: 1.5em;
     }
     .individual-page .buttons {
         max-width: 88vw;
-        margin: 6em auto 8em;
+        margin: 5em auto;
     }
     .individual-page .button-text {
         font-size: 1em;
