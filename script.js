@@ -7,20 +7,20 @@ const projects = [
     tags: ['UI Design', 'Figma', 'AI-Assisted UI'],
     title: 'Olibr — Homepage Redesign',
     desc: 'Designed and implemented a responsive homepage for a job and recruitment platform, combining UI/UX thinking with frontend execution and AI-assisted workflows.',
-    link: 'https://test.olibr.com',
+    link: 'https://olibr.com',
     placeholder: 'Olibr — Job Platform UI',
     img: '/assets/images/olibr-homepage.png',
     video: '/assets/videos/olibr-homepage.mp4'
   },
-  // {
-  //   tags: ['UI Design', 'Figma', 'AI-Assisted UI'],
-  //   title: 'Olibr — Job Platform',
-  //   desc: 'Designed the job search interface and card components for a hiring platform. Focused on information hierarchy and scanability — making it fast for candidates to assess roles at a glance.',
-  //   link: 'https://test.olibr.com',
-  //   placeholder: 'Olibr — Job Platform UI',
-  //   img: 'olibr-jobs.png',
-  //   video: null
-  // },
+  {
+    tags: ['UI Design', 'AI-Assisted UI'],
+    title: 'Olibr — Onboarding Flow',
+    desc: 'Designed the registration and onboarding experience for job seekers. Split-screen layout with contextual illustration to reduce drop-off at sign-up.',
+    link: 'https://olibr.com',
+    placeholder: 'Olibr — Onboarding Flow',
+    img: 'olibr-jobs.png',
+    video: '/assets/videos/olibr-onboarding-flow.mp4'
+  },
   // {
   //   tags: ['UI/UX', 'Figma', 'AI-Assisted UI'],
   //   title: 'Olibr — Onboarding Flow',
@@ -100,7 +100,7 @@ function buildWorkCard(project) {
           <div class="work-title">${project.title}</div>
           <p class="work-desc">${project.desc}</p>
         </div>
-        <a href="${project.link}" target="_blank" class="work-link">View Live ↗</a>
+        ${project.link ? `<a href="${project.link}" target="_blank" class="work-link">View Live ↗</a>` : ''}
       </div>
     </div>`;
 }
