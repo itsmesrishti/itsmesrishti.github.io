@@ -12,44 +12,44 @@ const projects = [
     img: '/assets/images/olibr-homepage.png',
     video: '/assets/videos/olibr-homepage.mp4'
   },
-  {
-    tags: ['UI Design', 'Figma', 'AI-Assisted UI'],
-    title: 'Olibr — Job Platform',
-    desc: 'Designed the job search interface and card components for a hiring platform. Focused on information hierarchy and scanability — making it fast for candidates to assess roles at a glance.',
-    link: 'https://test.olibr.com',
-    placeholder: 'Olibr — Job Platform UI',
-    img: 'olibr-jobs.png',
-    video: null
-  },
-  {
-    tags: ['UI/UX', 'Figma', 'AI-Assisted UI'],
-    title: 'Olibr — Onboarding Flow',
-    desc: 'Designed the registration and onboarding experience for both job seekers and recruiters. Split-screen layout with contextual illustration to reduce drop-off at sign-up.',
-    link: 'https://test.olibr.com',
-    placeholder: 'Olibr — Onboarding Flow',
-    img: null,
-    video: null
-  },
-  {
-    tags: ['UI Design', 'Figma'],
-    title: 'Analytics Dashboard',
-    desc: 'Designed a data-heavy analytics dashboard with a focus on clarity — turning complex metrics into scannable, actionable insights for non-technical stakeholders.',
-    link: '#',
-    placeholder: 'Analytics Dashboard',
-    img: null,
-    video: null
-    // To add a video: video: '/assets/videos/analytics-demo.mp4'
-  },
-  {
-    tags: ['UI/UX', 'Figma', 'AI-Assisted UI'],
-    title: 'Mobile App Redesign',
-    desc: 'End-to-end redesign of a consumer mobile app. Rebuilt the information architecture, streamlined core user flows, and created a cohesive component library in Figma.',
-    link: '#',
-    placeholder: 'Mobile App Redesign',
-    img: null,
-    video: null
-    // To add a video: video: '/assets/videos/mobile-app-demo.mp4'
-  }
+  // {
+  //   tags: ['UI Design', 'Figma', 'AI-Assisted UI'],
+  //   title: 'Olibr — Job Platform',
+  //   desc: 'Designed the job search interface and card components for a hiring platform. Focused on information hierarchy and scanability — making it fast for candidates to assess roles at a glance.',
+  //   link: 'https://test.olibr.com',
+  //   placeholder: 'Olibr — Job Platform UI',
+  //   img: 'olibr-jobs.png',
+  //   video: null
+  // },
+  // {
+  //   tags: ['UI/UX', 'Figma', 'AI-Assisted UI'],
+  //   title: 'Olibr — Onboarding Flow',
+  //   desc: 'Designed the registration and onboarding experience for both job seekers and recruiters. Split-screen layout with contextual illustration to reduce drop-off at sign-up.',
+  //   link: 'https://test.olibr.com',
+  //   placeholder: 'Olibr — Onboarding Flow',
+  //   img: null,
+  //   video: null
+  // },
+  // {
+  //   tags: ['UI Design', 'Figma'],
+  //   title: 'Analytics Dashboard',
+  //   desc: 'Designed a data-heavy analytics dashboard with a focus on clarity — turning complex metrics into scannable, actionable insights for non-technical stakeholders.',
+  //   link: '#',
+  //   placeholder: 'Analytics Dashboard',
+  //   img: null,
+  //   video: null
+  //   // To add a video: video: '/assets/videos/analytics-demo.mp4'
+  // },
+  // {
+  //   tags: ['UI/UX', 'Figma', 'AI-Assisted UI'],
+  //   title: 'Mobile App Redesign',
+  //   desc: 'End-to-end redesign of a consumer mobile app. Rebuilt the information architecture, streamlined core user flows, and created a cohesive component library in Figma.',
+  //   link: '#',
+  //   placeholder: 'Mobile App Redesign',
+  //   img: null,
+  //   video: null
+  //   // To add a video: video: '/assets/videos/mobile-app-demo.mp4'
+  // }
 ];
 
 
