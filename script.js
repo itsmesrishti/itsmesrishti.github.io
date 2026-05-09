@@ -7,7 +7,7 @@ const projects = [
     tags: ['UI Design', 'Figma', 'AI-Assisted UI'],
     title: 'Olibr — Homepage Redesign',
     desc: 'Designed and implemented a responsive homepage for a job and recruitment platform, combining UI/UX thinking with frontend execution and AI-assisted workflows.',
-    link: 'https://olibr.com',
+    link: 'https://test.olibr.com',
     placeholder: 'Olibr — Job Platform UI',
     img: '/assets/images/olibr-homepage.png',
     video: '/assets/videos/olibr-homepage.mp4'
