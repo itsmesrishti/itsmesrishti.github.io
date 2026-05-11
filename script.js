@@ -8,6 +8,7 @@ const projects = [
     title: 'Olibr — Homepage Redesign',
     desc: 'Designed and implemented a responsive homepage for a job and recruitment platform, combining UI/UX thinking with frontend execution and AI-assisted workflows.',
     link: 'https://olibr.com',
+    page: '/project/olibr-homepage.html',
     placeholder: 'Olibr — Job Platform UI',
     img: '/assets/images/olibr-homepage.png',
     video: '/assets/videos/olibr-homepage.mp4'
@@ -17,39 +18,11 @@ const projects = [
     title: 'Olibr — Onboarding Flow',
     desc: 'Designed the registration and onboarding experience for job seekers. Split-screen layout with contextual illustration to reduce drop-off at sign-up.',
     link: 'https://olibr.com',
+    page: '/project/olibr-onboarding.html',
     placeholder: 'Olibr — Onboarding Flow',
-    img: 'olibr-jobs.png',
+    img: '/assets/images/olibr-onboarding.png',
     video: '/assets/videos/olibr-onboarding-flow.mp4'
   },
-  // {
-  //   tags: ['UI/UX', 'Figma', 'AI-Assisted UI'],
-  //   title: 'Olibr — Onboarding Flow',
-  //   desc: 'Designed the registration and onboarding experience for both job seekers and recruiters. Split-screen layout with contextual illustration to reduce drop-off at sign-up.',
-  //   link: 'https://test.olibr.com',
-  //   placeholder: 'Olibr — Onboarding Flow',
-  //   img: null,
-  //   video: null
-  // },
-  // {
-  //   tags: ['UI Design', 'Figma'],
-  //   title: 'Analytics Dashboard',
-  //   desc: 'Designed a data-heavy analytics dashboard with a focus on clarity — turning complex metrics into scannable, actionable insights for non-technical stakeholders.',
-  //   link: '#',
-  //   placeholder: 'Analytics Dashboard',
-  //   img: null,
-  //   video: null
-  //   // To add a video: video: '/assets/videos/analytics-demo.mp4'
-  // },
-  // {
-  //   tags: ['UI/UX', 'Figma', 'AI-Assisted UI'],
-  //   title: 'Mobile App Redesign',
-  //   desc: 'End-to-end redesign of a consumer mobile app. Rebuilt the information architecture, streamlined core user flows, and created a cohesive component library in Figma.',
-  //   link: '#',
-  //   placeholder: 'Mobile App Redesign',
-  //   img: null,
-  //   video: null
-  //   // To add a video: video: '/assets/videos/mobile-app-demo.mp4'
-  // }
 ];
 
 
@@ -65,7 +38,6 @@ function getMediaHTML(project) {
       loop
       muted
       playsinline
-      thumbnail="${project.img || ''}"
       width="100%"
       poster="${project.img || ''}"
     ></video>`;
@@ -91,17 +63,21 @@ function buildWorkCard(project) {
 
   const mediaHTML = getMediaHTML(project);
 
-  return `
-    <div class="work-item">
-      <div class="work-image">${mediaHTML}</div>
-      <div class="work-info">
-        <div class="work-meta">
-          <div class="work-tags">${tagsHTML}</div>
-          <div class="work-title">${project.title}</div>
-          <p class="work-desc">${project.desc}</p>
-        </div>
-        ${project.link ? `<a href="${project.link}" target="_blank" class="work-link">View Live ↗</a>` : ''}
+  // Wrap entire card in anchor if project page exists
+  const cardInner = `
+    <div class="work-image">${mediaHTML}</div>
+    <div class="work-info">
+      <div class="work-meta">
+        <div class="work-tags">${tagsHTML}</div>
+        <div class="work-title">${project.title}</div>
+        <p class="work-desc">${project.desc}</p>
       </div>
+      ${project.link ? `<a href="${project.link}" target="_blank" class="work-link" onclick="event.stopPropagation()">View Live ↗</a>` : ''}
+    </div>`;
+
+  return `
+    <div class="work-item" ${project.page ? `data-page="${project.page}"` : ''}>
+      ${cardInner}
     </div>`;
 }
 
@@ -111,11 +87,23 @@ function buildWorkCard(project) {
 ───────────────────────────────────────── */
 function renderMainGrid() {
   const grid = document.getElementById('main-work-grid');
+  if (!grid) return;
+
   grid.innerHTML = projects.map(buildWorkCard).join('');
 
-  // Attach tag click listeners
+  // Card click → project page
+  grid.querySelectorAll('.work-item[data-page]').forEach(card => {
+    card.addEventListener('click', () => {
+      window.location.href = card.dataset.page;
+    });
+  });
+
+  // Tag click listeners
   grid.querySelectorAll('.tag').forEach(btn => {
-    btn.addEventListener('click', () => openTagFilter(btn.dataset.tag));
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openTagFilter(btn.dataset.tag);
+    });
   });
 
   // Scroll reveal
@@ -148,11 +136,20 @@ function openTagFilter(tag) {
 
   if (matched.length > 0) {
     results.innerHTML = matched.map(buildWorkCard).join('');
-    // Make all cards immediately visible in filter view
     results.querySelectorAll('.work-item').forEach(el => el.classList.add('visible'));
-    // Re-attach tag listeners inside filter results
+
+    // Card click inside filter
+    results.querySelectorAll('.work-item[data-page]').forEach(card => {
+      card.addEventListener('click', () => {
+        window.location.href = card.dataset.page;
+      });
+    });
+
     results.querySelectorAll('.tag').forEach(btn => {
-      btn.addEventListener('click', () => openTagFilter(btn.dataset.tag));
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openTagFilter(btn.dataset.tag);
+      });
     });
   } else {
     results.innerHTML = `<p class="filter-empty">No matching projects yet.</p>`;
@@ -165,16 +162,20 @@ function openTagFilter(tag) {
 }
 
 function closeTagFilter() {
-  document.getElementById('filter-overlay').classList.remove('active');
+  const overlay = document.getElementById('filter-overlay');
+  if (overlay) overlay.classList.remove('active');
   document.body.style.overflow = '';
 }
 
 
 /* ─────────────────────────────────────────
    Nav scroll effect
+   Works for both <nav id="nav"> (index)
+   and <div id="nav-wrapper"> (project pages)
 ───────────────────────────────────────── */
 function initNav() {
-  const nav = document.getElementById('nav');
+  const nav = document.getElementById('nav') || document.getElementById('nav-wrapper');
+  if (!nav) return;
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 50);
   }, { passive: true });
@@ -182,9 +183,30 @@ function initNav() {
 
 
 /* ─────────────────────────────────────────
+   Project page scroll reveal
+───────────────────────────────────────── */
+function initProjectReveal() {
+  const revealEls = document.querySelectorAll('.process-card, .decision-card, .screenshot-item');
+  if (!revealEls.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  revealEls.forEach(el => observer.observe(el));
+}
+
+
+/* ─────────────────────────────────────────
    Event Listeners
 ───────────────────────────────────────── */
-document.getElementById('filter-close-btn').addEventListener('click', closeTagFilter);
+const filterCloseBtn = document.getElementById('filter-close-btn');
+if (filterCloseBtn) filterCloseBtn.addEventListener('click', closeTagFilter);
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeTagFilter();
@@ -196,3 +218,4 @@ document.addEventListener('keydown', e => {
 ───────────────────────────────────────── */
 initNav();
 renderMainGrid();
+initProjectReveal();
