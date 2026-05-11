@@ -706,6 +706,7 @@ footer {
   cursor: pointer;
   font-family: 'DM Sans', sans-serif;
   transition: border-color 0.2s, color 0.2s;
+  text-decoration: none;
 }
 
 .filter-close:hover {
@@ -891,6 +892,10 @@ footer {
   font-size: 1rem;
   color: var(--text);
   line-height: 1.4;
+}
+
+.meta-value a {
+  color: var(--text);
 }
 
 .process-grid {
